@@ -8,6 +8,9 @@ dist/
 build/
 *.egg
 
+# Upload script (contains HF token — never commit!)
+upload_model.py
+
 # Virtual environment
 .venv/
 venv/

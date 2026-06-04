@@ -5,7 +5,10 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 app = Flask(__name__)
 
-model_path = "distilbert_v2_indian_model"
+# In production (HuggingFace Spaces), set HF_MODEL_ID env variable to
+# your uploaded model e.g. "vigneshp9080-bit/distilbert-fake-news-indian"
+# Locally, it falls back to the local model folder.
+model_path = os.environ.get("HF_MODEL_ID", "distilbert_v2_indian_model")
 
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForSequenceClassification.from_pretrained(model_path)
@@ -48,4 +51,4 @@ def home():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False, host="0.0.0.0", port=port)
