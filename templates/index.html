@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedTruth AI — Medical Fake News Detector</title>
-  <meta name="description" content="AI-powered medical fake news detection using DistilBERT. Instantly verify the authenticity of health and medical news articles with professional-grade NLP analysis." />
+  <title>TruthScan AI — Fake News Detector</title>
+  <meta name="description" content="AI-powered fake news detection using DistilBERT. Instantly verify the authenticity of any news article with professional-grade NLP analysis." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -25,7 +25,7 @@
             <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="logo-name">Med<span class="logo-accent">Truth</span></span>
+        <span class="logo-name">Truth<span class="logo-accent">Scan</span></span>
         <span class="logo-badge">AI</span>
       </a>
       <div class="nav-links" id="navLinks">
@@ -48,18 +48,17 @@
     <div class="hero-content reveal">
       <div class="hero-badge">
         <span class="badge-pulse"></span>
-        <span>Medical Domain · DistilBERT · Real-time Analysis</span>
+        <span>DistilBERT · NLP · Real-time Analysis</span>
       </div>
 
       <h1 class="hero-title">
-        <span class="title-line">Detect</span>
-        <span class="title-line accent-gradient">Fake News</span>
-        <span class="title-line">Instantly<span class="blink-cursor">_</span></span>
+        The Future of <br/>
+        <span class="text-amber">Truth Detection</span>
       </h1>
 
       <p class="hero-sub">
-        Powered by transformer-based AI — restricted to the <strong>Medical &amp; Health domain</strong>.
-        Verify authenticity of health news, medical research claims, and pharma updates instantly.
+        Powered by transformer-based AI trained on thousands of Indian news articles.
+        Get accurate authenticity verdicts in under a second.
       </p>
 
       <div class="hero-ctas">
@@ -100,9 +99,9 @@
   <section class="detector-section" id="detector">
     <div class="section-wrap">
       <div class="section-head reveal">
-        <span class="section-chip">Medical Domain AI</span>
-        <h2 class="section-title">Medical News <span class="text-amber">Authenticity</span> Scanner</h2>
-        <p class="section-desc">Paste a <strong>medical or health-related</strong> news article below. Non-medical content will be flagged as out-of-scope.</p>
+        <span class="section-chip">AI-Powered</span>
+        <h2 class="section-title">News <span class="text-amber">Authenticity</span> Scanner</h2>
+        <p class="section-desc">Paste any news article or headline below and let our DistilBERT model classify it.</p>
       </div>
 
       <div class="detector-card reveal delay-1">
@@ -113,7 +112,7 @@
             <span class="tb-dot yellow"></span>
             <span class="tb-dot green"></span>
           </div>
-          <span class="tb-title">medical_news_analyzer.py — MedTruth AI</span>
+          <span class="tb-title">news_analyzer.py — TruthScan AI</span>
           <span class="tb-status" id="modelStatus">
             <span class="status-dot"></span>MODEL READY
           </span>
@@ -137,7 +136,7 @@
                 id="newsInput"
                 name="news"
                 class="news-textarea"
-                placeholder="Paste a medical or health-related news article here (e.g., vaccine updates, disease outbreaks, drug approvals)..."
+                placeholder="Paste your news article or headline here..."
                 rows="7"
               >{% if request.method == 'POST' %}{{ request.form['news'] }}{% endif %}</textarea>
               <div class="textarea-border-anim"></div>
@@ -240,33 +239,6 @@
             </div>
             <div class="result-bar-track">
               <div class="result-bar-fill fake-fill" style="width:0%" data-fill="91%"></div>
-            </div>
-          </div>
-        </div>
-        {% elif prediction == "OUT_OF_DOMAIN" %}
-        <div class="result-inner ood">
-          <div class="result-glow ood-glow"></div>
-          <div class="result-icon-wrap ood-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-          </div>
-          <div class="result-verdict ood-verdict">🚫 Out of Medical Domain</div>
-          <p class="result-detail">This article does <strong>not appear to be related to medicine or healthcare</strong>. MedTruth AI is trained exclusively for medical news verification. Please enter a health or medical-related article.</p>
-          <div class="result-metrics">
-            <div class="metric-item">
-              <span class="metric-label">Domain</span>
-              <span class="metric-val ood-text">Non-Medical</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-label">Action</span>
-              <span class="metric-val ood-text">Input Rejected</span>
-            </div>
-            <div class="metric-item">
-              <span class="metric-label">Scope</span>
-              <span class="metric-val">Medical Only</span>
             </div>
           </div>
         </div>
@@ -480,10 +452,10 @@
               <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="logo-name">Med<span class="logo-accent">Truth</span></span>
+          <span class="logo-name">Truth<span class="logo-accent">Scan</span></span>
           <span class="logo-badge">AI</span>
         </div>
-        <p class="footer-tagline">AI-powered <strong>medical</strong> fake news detection<br/>using state-of-the-art DistilBERT transformers.</p>
+        <p class="footer-tagline">AI-powered fake news detection using<br/>state-of-the-art DistilBERT transformers.</p>
       </div>
       <div class="footer-links">
         <div class="fl-col">
@@ -503,8 +475,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 MedTruth AI. Built with ❤️ for Medical Information Integrity.</span>
-      <span>Powered by <strong>DistilBERT</strong> · Medical Domain Boundary</span>
+      <span>© 2025 TruthScan AI. Built with ❤️ for Information Integrity.</span>
+      <span>Powered by <strong>DistilBERT</strong> · Indian News Corpus</span>
     </div>
   </footer>
 
@@ -553,8 +525,8 @@
 
   // ── Sample texts ──
   const samples = {
-    real: 'The Indian Council of Medical Research (ICMR) confirmed that the updated COVID-19 booster vaccine provides 94% efficacy against the new XBB.1.5 variant. The study, conducted across 12 AIIMS hospitals, enrolled over 8,000 participants and found no serious adverse events.',
-    fake: 'BREAKING: Scientists discover that drinking hot turmeric water every morning completely cures cancer in just 7 days. Big pharma companies are trying to suppress this ancient Ayurvedic secret. Government hospitals are hiding this cure to keep selling chemotherapy!'
+    real: 'The Reserve Bank of India announced a 25 basis point reduction in the repo rate to 6.25% during its latest Monetary Policy Committee meeting, citing improving inflation numbers and the need to support economic growth.',
+    fake: 'BREAKING: Government secretly plans to ban all cash transactions above Rs 500 from next month. Anonymous sources from Finance Ministry confirm new demonetisation 2.0 coming soon. Share before it is deleted!'
   };
   document.querySelectorAll('.sample-pill').forEach(btn => {
     btn.addEventListener('click', () => {

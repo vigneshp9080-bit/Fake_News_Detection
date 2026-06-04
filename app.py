@@ -15,44 +15,6 @@ tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForSequenceClassification.from_pretrained(model_path)
 model.eval()
 
-# ── Medical Domain Boundary ──────────────────────────────────────────────────
-MEDICAL_KEYWORDS = [
-    # Diseases & conditions
-    "disease", "virus", "bacteria", "infection", "cancer", "diabetes", "hypertension",
-    "covid", "corona", "flu", "influenza", "ebola", "malaria", "tuberculosis", "hiv",
-    "aids", "hepatitis", "dengue", "cholera", "typhoid", "pneumonia", "asthma",
-    "arthritis", "alzheimer", "parkinson", "epilepsy", "stroke", "heart attack",
-    "cardiac", "tumor", "leukemia", "anemia", "obesity", "depression", "anxiety",
-    "schizophrenia", "autism", "adhd", "dementia", "meningitis", "sepsis",
-    # Medical professionals & settings
-    "doctor", "physician", "surgeon", "nurse", "hospital", "clinic", "pharmacy",
-    "emergency room", "icu", "operation theatre", "ambulance", "patient", "ward",
-    "medical", "healthcare", "health care", "medicine", "medication", "prescription",
-    "diagnosis", "treatment", "therapy", "surgery", "operation", "procedure",
-    # Drugs & treatments
-    "drug", "vaccine", "vaccination", "antibiotic", "antiviral", "chemotherapy",
-    "radiation", "insulin", "paracetamol", "aspirin", "ibuprofen", "hydroxychloroquine",
-    "remdesivir", "ivermectin", "dose", "dosage", "side effect", "clinical trial",
-    "fda", "who", "cdc", "icmr", "aiims",
-    # Body parts & biology
-    "blood", "lung", "liver", "kidney", "brain", "heart", "bone", "muscle", "skin",
-    "gene", "dna", "rna", "protein", "cell", "immune", "antibody", "pathogen",
-    "symptom", "symptoms", "fever", "cough", "pain", "fatigue", "nausea", "vomiting",
-    "headache", "dizziness", "rash", "swelling", "bleeding",
-    # Health topics
-    "nutrition", "diet", "mental health", "public health", "epidemic", "pandemic",
-    "outbreak", "quarantine", "lockdown health", "sanitizer", "mask", "ppe",
-    "ventilator", "oxygen", "x-ray", "mri", "scan", "ultrasound", "biopsy",
-    "blood pressure", "cholesterol", "sugar level", "immunity", "ayurveda", "homeopathy",
-]
-
-def is_medical_domain(text: str) -> bool:
-    """Return True if the text contains medical/health-related keywords."""
-    text_lower = text.lower()
-    return any(kw in text_lower for kw in MEDICAL_KEYWORDS)
-
-# ─────────────────────────────────────────────────────────────────────────────
-
 def predict_news(text):
     inputs = tokenizer(
         text,
@@ -82,9 +44,6 @@ def home():
 
         elif len(news_text.split()) < 5:
             prediction = "Please enter a valid news sentence."
-
-        elif not is_medical_domain(news_text):
-            prediction = "OUT_OF_DOMAIN"
 
         else:
             prediction = predict_news(news_text)
