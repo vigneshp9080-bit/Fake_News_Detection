@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Model weights (large binary files — store separately on HuggingFace Hub)
+distilbert_fake_news_model/
+distilbert_v2_indian_model/
+
+# Dataset (large files)
+Dataset/
+
+# Results
+results/
+results_v2/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Environment variables
+.env
